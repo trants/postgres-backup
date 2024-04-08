@@ -50,6 +50,7 @@ POSTGRES_USER=user
 POSTGRES_PASSWORD=password
 
 # Backup
+TZ=UTC
 SCHEDULE=@weekly
 BACKUP_KEEP_DAYS=7
 PASSPHRASE=platonic-subdued-curvy-tweet-backroom
@@ -91,6 +92,7 @@ services:
     restart: unless-stopped
     image: vnspc/postgres-backup:16
     environment:
+      - TZ=${TZ:-UTC}
       - SCHEDULE=${SCHEDULE:-@weekly}
       - BACKUP_KEEP_DAYS=${BACKUP_KEEP_DAYS:-7}
       - PASSPHRASE=${PASSPHRASE:-passphrase}
