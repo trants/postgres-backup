@@ -85,7 +85,7 @@ services:
       - POSTGRES_USER=${POSTGRES_USER:-user}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-password}
     networks:
-      - network-bridge
+      - vspc
 
   backup:
     container_name: postgres-backup
@@ -105,12 +105,12 @@ services:
     depends_on:
       - postgres
     networks:
-      - network-bridge
+      - vspc
 
 networks:
-  network-bridge:
+  vspc:
     driver: bridge
-    name: network-bridge
+    name: vspc
 ```
 
 #### Restore
@@ -137,12 +137,12 @@ I hope you find this useful. If you have any questions, please create an issue.
 
 ### 🔐 Security
 
-If you discover any security related issues, please email 286.trants@gmail.com instead of using the issue tracker.
+If you discover any security related issues, please email opensource@vspc.vn instead of using the issue tracker.
 
 ### 📖 License
 
 This software is released under the [BSD 3-Clause][link-license] License. Please see the [LICENSE](LICENSE) file
-or https://trants.me/LICENSE.txt for more information.
+or https://vspc.vn/license for more information.
 
 ### ✨ Contributors
 
